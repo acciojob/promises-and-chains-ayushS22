@@ -6,8 +6,8 @@
     const age = document.getElementById("age").value.trim();
 
     if (name === "" || age === "") {
-      alert("Please enter valid details.");
-      return; // ✅ Valid: inside a function
+      alert('Please enter valid details');
+      
     }
 
     const ageNumber = Number(age);
