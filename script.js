@@ -23,8 +23,8 @@ const myAgePromise = new promise( (resole,reject) =>{
 
 // handle promise results
 myAgePromise.then((name)=>{
-	alert(Welcome, . You can vote.);
+	alert('Welcome, . You can vote.');
 }).catch(()=>{
-	alert(Oh sorry . You aren't old enough.);
+	alert("Oh sorry . You aren't old enough.");
 })
 
