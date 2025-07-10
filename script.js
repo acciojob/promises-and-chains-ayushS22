@@ -1,31 +1,33 @@
-const name = document.getElementById("name").value.trim();
-const age = document.getElementById("age").value.trim();
 
-/* Validation */
-if (name === "" || age === "") {
-  alert("Please enter valid details.");
-  return;
-}
+  document.getElementById("votingForm").addEventListener("submit", function (event) {
+    event.preventDefault();
 
-/* Convert age to number */
-const ageNumber = Number(age);
+    const name = document.getElementById("name").value.trim();
+    const age = document.getElementById("age").value.trim();
 
-/* Create Promise */
-const myAgePromise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    if (ageNumber > 18) {
-      resolve(name);
-    } else {
-      reject(name);
+    if (name === "" || age === "") {
+      alert("Please enter valid details.");
+      return; // ✅ Valid: inside a function
     }
-  }, 4000);
-});
 
-/* Handle Promise */
-myAgePromise
-  .then((userName) => {
-    alert(`Welcome, ${userName}. You can vote.`);
-  })
-  .catch((userName) => {
-    alert(`Oh sorry ${userName}. You aren't old enough.`);
+    const ageNumber = Number(age);
+
+    const myAgePromise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (ageNumber > 18) {
+          resolve(name);
+        } else {
+          reject(name);
+        }
+      }, 4000);
+    });
+
+    myAgePromise
+      .then((userName) => {
+        alert(`Welcome, ${userName}. You can vote.`);
+      })
+      .catch((userName) => {
+        alert(`Oh sorry ${userName}. You aren't old enough.`);
+      });
   });
+
